@@ -121,5 +121,5 @@ icons.forEach((icons, index, array) => {
         <p>${icons.name}</p>
     </div>
 	`;
-	document.querySelector(".card").insertAdjacentHTML("afterbegin");
+	document.querySelector(".card").insertAdjacentHTML('beforebegin', );
 });
