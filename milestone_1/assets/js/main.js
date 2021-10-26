@@ -114,12 +114,24 @@ const icons = [
 ];
 
 // ciclo forEach
-icons.forEach((icons, index, array) => {
-	const cardElement = `
-	<div class="card">
-        <i class="${icons.family}${icons.prefix}${icons.name}"></i>
-        <p>${icons.name}</p>
-    </div>
+icons.forEach((element, index, array) => {
+	let icon = `
+			<div class="col
+							d-flex
+							flex-column
+							justify-content-center
+							align-items-center
+							bg-light
+							rounded-3
+							text-center
+				
+							shadow
+							small">
+				<i class="${element.family} ${element.prefix}${element.name}"></i>
+				<h6 class="text-uppercase fs-6 mt-1">${element.name}</h6>
+			</div> 
 	`;
-	document.querySelector(".card").insertAdjacentHTML('beforebegin', );
+	console.log(icon);
+	let result = document.querySelector(".row");
+	result.innerHTML += icon;
 });
