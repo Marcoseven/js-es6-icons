@@ -4,5 +4,46 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+body {
+	width: 90%;
+	background-color: #000;
+	margin: auto;
+}
 /* /common_general_rules */
 
+/* .site_header */
+.site_header {
+	background-color: #fff;
+}
+
+h1 {
+	color: #29b1dd;
+	margin: 0 1.5rem;
+}
+
+.row_select {
+	height: 50px;
+	justify-content: center;
+	background-color: #29b1dd;
+	color: #fff;
+}
+
+h2 {
+	margin: 0 1rem;
+	font-size: 18px;
+	line-height: 50px;
+}
+
+#level {
+	height: 60%;
+	line-height: 50px;
+	margin: 0.5rem 0;
+}
+/* /.site_header */
+
+/* .site_main */
+.site_main {
+	background-color: #dddddd;
+}
+/* /.site_main */
