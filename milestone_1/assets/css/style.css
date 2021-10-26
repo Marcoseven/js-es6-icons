@@ -46,4 +46,17 @@ h2 {
 .site_main {
 	background-color: #dddddd;
 }
+
+.col {
+	height: 100px;
+}
+
+.col:hover {
+	cursor: pointer;
+}
+
+.col > i::before {
+	font-size: 50px;
+	color: #0000ff;
+}
 /* /.site_main */
