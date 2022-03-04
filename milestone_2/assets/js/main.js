@@ -1,18 +1,3 @@
-/* 
-Traccia Milestone 1.
-Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
-
-Consigli:
-- Mangiate e poi iniziate a lavorare subito.
-- riprodurre layout fedelmente
-- fate una milestone alla volta
-- mettete ciascuna milestone in una cartella (es. js-es6-icons/milestone_1)
-- completata una milestone passate alla successiva, copiando il contenuto della milestone precedente nella cartella di quella nuova.
-- per ciascuna milestone scrivete quello che volete fare, passo passo, in italiano.
-- leggete le slide e la documentazione degli strumenti che volete utulizzare
-- Divertitievi.
-*/
-
 // Array di oggetti
 const icons = [
 	{
@@ -124,15 +109,53 @@ icons.forEach((element, index, array) => {
 					bg-light
 					rounded-3
 					text-center
-		
 					shadow
 					small">
 				<i class="${element.family} ${element.prefix}${element.name}"></i>
 				<h6 class="text-uppercase fs-6 mt-1">${element.name}</h6>
 			</div> 
 	`;
-	console.log(icon);
-	let result = document.querySelector(".row");
-	result.innerHTML += icon;
 });
 
+console.log(icon);
+let result = document.querySelector(".row");
+result.innerHTML += icon;
+
+/* MILESTONE 2 */
+generateCardIcons(icons);
+const types = getTypes(icons);
+console.log(types);
+
+generateSelectOptionElements(types);
+/* MILESTONE 2 */
+
+/* MILESTONE 3 */
+document.getElementById("level").addEventListener("change", change_label);
+generateIcons(icons);
+function change_label() {
+	document.querySelector(".col").innerHTML = "";
+	if (this.value === "all") {
+		generateIcons(icons);
+	}
+	filterIcons = icons.filter((icon) => icon.type === this.value);
+	generateIcons(filterIcons);
+}
+generateColElement(icon)
+function generateColElement(iconArray){
+
+}
+/* MILESTONE 3 */
+
+// colori
+/* let colorIcons = "";
+	let animalColor = `${icons.type.animalColor}`;
+	let vegetableColor = `${icons.type.vegetableColor}`;
+	let userColor = `${icons.type.userColor}`;
+
+	if (icons.type == "animal") {
+		colorIcons == animalColor;
+	} else if (icons.type == "vegetable") {
+		colorIcons == vegetableColor;
+	} else if (icons.type == "user") {
+		colorIcons == userColor;
+	} */

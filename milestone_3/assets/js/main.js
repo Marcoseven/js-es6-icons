@@ -1,19 +1,4 @@
-/* 
-Traccia Milestone 1.
-Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
-
-Consigli:
-- Mangiate e poi iniziate a lavorare subito.
-- riprodurre layout fedelmente
-- fate una milestone alla volta
-- mettete ciascuna milestone in una cartella (es. js-es6-icons/milestone_1)
-- completata una milestone passate alla successiva, copiando il contenuto della milestone precedente nella cartella di quella nuova.
-- per ciascuna milestone scrivete quello che volete fare, passo passo, in italiano.
-- leggete le slide e la documentazione degli strumenti che volete utulizzare
-- Divertitievi.
-*/
-
-// Array di oggetti
+// Array of objects
 const icons = [
 	{
 		name: "cat",
@@ -113,10 +98,10 @@ const icons = [
 	},
 ];
 
-// ciclo forEach
+// forEach loop
 icons.forEach((element, index, array) => {
 	let icon = `
-			<div class="col
+			<div class="card
 					d-flex
 					flex-column
 					justify-content-center
@@ -124,15 +109,71 @@ icons.forEach((element, index, array) => {
 					bg-light
 					rounded-3
 					text-center
-		
 					shadow
 					small">
 				<i class="${element.family} ${element.prefix}${element.name}"></i>
 				<h6 class="text-uppercase fs-6 mt-1">${element.name}</h6>
 			</div> 
 	`;
-	console.log(icon);
+
 	let result = document.querySelector(".row");
 	result.innerHTML += icon;
 });
 
+document.getElementById("level").addEventListener("change", callback);
+
+function callback() {
+	console.log("Livello dell'icone è stato cambiato in", this.value);
+	document.querySelector(".card").innerHTML = "";
+
+	if (this.value === "all") {
+		generateCardIcons(icons);
+	}
+
+	const filteredIcons = icons.filter((icon) => icon.type === this.value);
+	console.log(filteredIcons);
+
+	generateCardIcons(filteredIcons);
+}
+
+/**
+ * Extract all icons type from the array
+ * @param {array} list an array of objects
+ * @returns {array}
+ */
+function getTypes(list) {
+	const types = [];
+	list.forEach((icon) => {
+		if (!types.includes(icon.type)) {
+			types.push(icon.type);
+		}
+	});
+	return types;
+}
+
+/**
+ * Geneates all cards icons
+ * @param {Array} iconsArray Object's array
+ */
+function generateCardIcons(iconsArray) {
+	const domEl = document.querySelector(".card");
+
+	iconsArray.forEach((icon) => {
+		const cardElement = generateCardElement(icon);
+		domEl.insertAdjacentHTML("beforeend", cardElement);
+	});
+}
+
+/**
+ * Generates the icon's markup
+ * @param {object} iconObj an object icon
+ * @returns {string}
+ */
+function generateCardElement(iconObj) {
+	return `
+    <div class="card ${iconObj.type}">
+    <i class="${iconObj.family} ${iconObj.prefix}${iconObj.name}"></i>
+    <p>${iconObj.name}</p>
+  </div>
+  `;
+}

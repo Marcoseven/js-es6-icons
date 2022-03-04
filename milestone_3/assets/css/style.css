@@ -7,15 +7,27 @@
 
 body {
 	width: 90%;
-	background-color: black;
+	background-color: #000;
 	margin: auto;
 	font-family: "Acme", sans-serif;
+}
+
+#animalColor {
+	color: #0000ff;
+}
+
+#vegetableColor {
+	color: #ffa500;
+}
+
+#userColor {
+	color: #800080;
 }
 /* /common_general_rules */
 
 /* #site_header */
 #site_header {
-	background-color: white;
+	background-color: #fff;
 }
 
 h1 {
@@ -27,7 +39,7 @@ h1 {
 	height: 50px;
 	justify-content: center;
 	background-color: #29b1dd;
-	color: white;
+	color: #fff;
 }
 
 h2 {
@@ -45,21 +57,32 @@ h2 {
 
 /* #site_main */
 #site_main {
-	height: auto;
 	background-color: #dddddd;
 }
 
-.col {
+.card {
 	height: 100px;
 	width: 18%;
 	margin: 2rem 0.8rem;
 }
 
-.col:hover {
+.card:hover {
 	cursor: pointer;
 }
 
-.col > i::before {
+.card > i::before {
 	font-size: 40px;
+}
+
+.card.animal i {
+	color: #0000ff;
+}
+
+.card.vegetable i {
+	color: #ffa500;
+}
+
+.card.user i {
+	color: #800080;
 }
 /* /#site_main */
